@@ -1,4 +1,43 @@
 import support.Dog
+import support.PlatformTypes
+import support.PlatformTypes.getAList
+import support.PlatformTypes.returnsNullList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░████░░████░░░████░░░░░░░
+░░░░░░░░████░░████░░░░░░░░░░░░░░
+░░░░░░░░████░░████░░░████░░░░░░░
+░░░░░░░░████▄▄████░░░████░░░░░░░
+░░░░░░░░██████████░░░████░░░░░░░
+░░░░░░░░████▀▀████░░░████░░░░░░░
+░░░░░░░░████░░████░░░████░░░░░░░
+░░░░░░░░████░░████░░░████░░░░░░░
+░░░░░░░░████░░████░░░████░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+My name is Christina.
+I'm an Engineer at Pinterest.
+*/
+
+
+
+
+
+
 
 
 
@@ -252,7 +291,534 @@ class ExampleResult : ResultOrError<Unit, UninitializedPropertyAccessException>
 
 
 
-// NOT COVERED: Platform types
+/*
+
+
+.-,--. .      .  ,_
+ '|__/ |  ,-. |- |_ ,-. ,-. ,-,-.
+ .|    |  ,-| |  |  | | |   | | |
+ `'    `' `-^ `' |  `-' '   ' ' '
+                 '
+
+,--,--'
+`- | . . ,-. ,-. ,-.
+ , | | | | | |-' `-.
+ `-' `-| |-' `-' `-'
+      /| |
+     `-' '
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// REMEMBER THIS?
+
+// In simple cases, the type can be used interchangeably with the class name
+val str3: String = "string" // <-- String is the class and the type
+
+// But this quickly falls apart with nullables
+val str4: String? = "string" // <-- String is the class, String? is the type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// We are predominantly familiar with two types:
+
+val nullable: String?
+val notNullable: String
+
+
+// But there is actually a third possibility:
+
+// imNotSure: String!
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+                WWWWWWWW
+        WNXK0000000000000000KXNW
+     NK0000KXNWW        WWNXK0000KN
+  WXOO0XW                      WX0OOKW
+ XOOXW                            WXOOX
+KkKW       Hi, my name is          WKkK
+xX         Platform Type.             Kx
+xK                                     0x
+xN         I don't know                Xx
+xX         whether you are            Kx
+OON        nullable or not.          NkO
+N0kKW                              WKk0W
+ WXOOKN                          NKOOXW
+   WNkkN                    WNK0000XW
+    NOOWWNK000000KKKKKKK0000000KNW
+   WOk00OO0XNNXXKKKKKKKKKXNW
+  WOox0
+  WKK
+  W
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+val nullable__________Question: String?
+val notNullable_______Statement_of_Fact: String
+
+//  platformType______Screaming: String!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Question: When would you not know the type of a value?
+
+// Answer: When working in a language that doesn't
+// require you to keep track of those types of things.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *  [PlatformTypes] contains:
+ *
+ *  public static List<String> getAList() {
+ *      return new ArrayList<>();
+ *  }
+ *
+ */
+fun ISpyAPlatformType() {
+
+    val myJavaList = getAList()
+
+    // Hmmm 🤔
+    myJavaList?.add("Thing 1")
+    myJavaList.add("Thing 2")
+
+
+    // vs.
+
+    val myKotlinList: MutableList<String>? = mutableListOf<String>()
+
+    myKotlinList?.add("Thing 3")
+    myKotlinList.add("Thing 4")
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *   NOTATION, NOT SYNTAX!
+ *
+ *   "... Platform types cannot be mentioned explicitly in the program,
+ *   so there's no syntax for them in the language. Nevertheless,
+ *   the compiler and IDE need to display them sometimes (in error
+ *   messages, parameter info etc), so we have a mnemonic notation for them..."
+ *
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Why do we care?
+
+/*
+             N    N
+ (•_•)       NN   N
+ <)   )╯     N N  N
+  /   \      N   NN
+             N    N
+
+             PPPPPP
+  ( •_•)     P    P
+ \(   (>     PPPPPP
+  /   \      P
+             P
+
+             EEEEEEE
+ (•_•)       E
+ <)   )╯     EEEE
+  /   \      E
+             EEEEEEE
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+             Actual value is:          Actual value is:
+                  Null                     Not Null
+         ---------------------------------------------------
+         |                        |                        |
+         |                        |                        |
+         |                        |                        |
+Type is: |                        |                        |
+   T     |      CRASHHHHH!        |           OK           |
+         |                        |                        |
+         |                        |                        |
+         |                        |                        |
+         |                        |                        |
+         ---------------------------------------------------
+         |                        |                        |
+         |                        |                        |
+         |                        |                        |
+Type is: |                        |                        |
+   T?    |          OK            |      Redundant :(      |
+         |                        |                        |
+         |                        |                        |
+         |                        |                        |
+         |                        |                        |
+         ---------------------------------------------------
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// NPE's seem bad....
+// Why would Jetbrains do this to us?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Language Principles:
+ *
+ * 1. Concise
+ * 2. Pragmatic
+ * 3. Safe
+ * 4. Interoperable
+ *
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *  Three > One:
+ *
+ * 1. Concise                 |
+ * 2. Pragmatic          <- versus ->           3. Safe
+ * 4. Interoperable           |
+ *
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// So what do I do? I don't like crashes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Platform types best practices:
+ *
+ * 1. Annotate your Java code
+ */
+
+fun callingFromJava1() {
+    val list = getAList()
+
+    list.plus("A String")
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Platform types best practices:
+ *
+ * If you can't do:
+ * 1. Annotate your Java code
+ *
+ * Then at least do:
+ * 2. Explicitly type code coming from Java
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fun errorWithoutExplicitType() {
+    val list = returnsNullList()
+    list.size
+/*       ^^^^
+      _   ______  ______  */
+    // | / / __ \/ ____/
+   //  |/ / /_/ / __/
+  // /|  / ____/ /___
+ //_/ |_/_/   /_____/
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+fun errorWithExplicitType() {
+
+    // Better Error:
+    // "ILLEGAL STATE EXCEPTION: <insert name> must not be null"
+
+    val list2: List<String> = returnsNullList()
+    list.size
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Recap:
+
+// The type system gives us cool functionality
+
+// Unit, Any, and Nothing are interesting
+
+// Platform types can be dangerous, but you have tools!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
