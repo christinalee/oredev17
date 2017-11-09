@@ -10,6 +10,6 @@ important to understanding the content. Viewing it online is probably a bad idea
 visual indication of which parts are the broken code and which parts are the working code, but like
 covariance, I am not here to protect you from yourself, so read these in whatever reading tool you wish :)
 
-- Lee
+\- Lee
 
 P.S. The ASCII art looks better in the IDE.
