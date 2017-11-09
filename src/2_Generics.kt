@@ -568,13 +568,33 @@ val projectedType2: InvariantClass<in Int> = InvariantClass<Number>()
 //  MutableList<out T> -> MutableList<? extends T>
 //  MutableList<in T> —> MutableList<? super T>
 
+// PECS: Producer Extends, Consumer Super
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  This is useful because not all classes have invariant
 //  and covariant versions the way MutableList and List do
 
 
 
 
-// PECS: Producer Extends, Consumer Super
 
 
 
@@ -621,6 +641,73 @@ val projectedType2: InvariantClass<in Int> = InvariantClass<Number>()
 
 
 
+
+
+
+
+
+
+/*
+
+
+
+
+
+
+
+
+
+ ________  __                            __
+/        |/  |                          /  |
+$$$$$$$$/ $$ |____    ______   _______  $$ |   __
+   $$ |   $$      \  /      \ /       \ $$ |  /  |
+   $$ |   $$$$$$$  | $$$$$$  |$$$$$$$  |$$ |_/$$/
+   $$ |   $$ |  $$ | /    $$ |$$ |  $$ |$$   $$<
+   $$ |   $$ |  $$ |/$$$$$$$ |$$ |  $$ |$$$$$$  \
+   $$ |   $$ |  $$ |$$    $$ |$$ |  $$ |$$ | $$  |
+   $$/    $$/   $$/  $$$$$$$/ $$/   $$/ $$/   $$/
+
+
+                                                         Christina Lee
+                               __                        @RunChristinaRun
+                              /  |
+ __    __   ______   __    __ $$ |
+/  |  /  | /      \ /  |  /  |$$ |
+$$ |  $$ |/$$$$$$  |$$ |  $$ |$$ |
+$$ |  $$ |$$ |  $$ |$$ |  $$ |$$/
+$$ \__$$ |$$ \__$$ |$$ \__$$ | __
+$$    $$ |$$    $$/ $$    $$/ /  |
+ $$$$$$$ | $$$$$$/   $$$$$$/  $$/
+/  \__$$ |
+$$    $$/
+ $$$$$$/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ */
 
 
 

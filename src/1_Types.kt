@@ -1,6 +1,5 @@
 import support.Dog
-import support.PlatformTypes
-import support.PlatformTypes.getAList
+import support.PlatformTypes.getAListFromJava
 import support.PlatformTypes.returnsNullList
 
 
@@ -176,7 +175,7 @@ fun notImplemented(): List<List<List<Dog>>> {
 fun unreachable(someNullable: String?) {
     // Won't ever assign if null
     val nonNull: String = someNullable ?: throw NotImplementedError()
-    nonNull.plus("other string")
+    nonNull.last()
 
     val thing: Nothing = TODO() // Nothing type indicates
                                 // the function never completes.
@@ -204,8 +203,8 @@ class Something
 class Something2: Any()
 
 fun primitiveNiceties() {
-    val psuedo_primitive: Int = 1
-    val anyField: Any = psuedo_primitive // Kotlin "primitives" are all
+    val pseudo_primitive: Int = 1
+    val anyField: Any = pseudo_primitive // Kotlin "primitives" are all
                                          // considered subtypes of Any
 }
 
@@ -423,6 +422,34 @@ val notNullable_______Statement_of_Fact: String
 
 
 
+
+
+
+/**
+ *   NOTATION, NOT SYNTAX!
+ *
+ *   "... Platform types cannot be mentioned explicitly in the program,
+ *   so there's no syntax for them in the language. Nevertheless,
+ *   the compiler and IDE need to display them sometimes (in error
+ *   messages, parameter info etc), so we have a mnemonic notation for them..."
+ *
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Question: When would you not know the type of a value?
 
 // Answer: When working in a language that doesn't
@@ -443,17 +470,9 @@ val notNullable_______Statement_of_Fact: String
 
 
 
-/**
- *  [PlatformTypes] contains:
- *
- *  public static List<String> getAList() {
- *      return new ArrayList<>();
- *  }
- *
- */
 fun ISpyAPlatformType() {
 
-    val myJavaList = getAList()
+    val myJavaList = getAListFromJava()
 
     // Hmmm 🤔
     myJavaList?.add("Thing 1")
@@ -478,29 +497,6 @@ fun ISpyAPlatformType() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- *   NOTATION, NOT SYNTAX!
- *
- *   "... Platform types cannot be mentioned explicitly in the program,
- *   so there's no syntax for them in the language. Nevertheless,
- *   the compiler and IDE need to display them sometimes (in error
- *   messages, parameter info etc), so we have a mnemonic notation for them..."
- *
- */
 
 
 
@@ -705,7 +701,7 @@ Type is: |                        |                        |
  */
 
 fun callingFromJava1() {
-    val list = getAList()
+    val list = getAListFromJava()
 
     list.plus("A String")
 }

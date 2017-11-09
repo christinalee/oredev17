@@ -141,28 +141,11 @@ fun sampleFun() {
 
 
 
-// The definition of the map call looks like:
-
-public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.mapTo(destination: C, transform: (T) -> R): C {
-
-    // 👇👇👇 This is the part we care about
-    for (item in this)
-        destination.add(transform(item))
-    return destination
-    // ☝️☝️☝️
-
-}
 
 
 
 
-
-
-
-
-
-
-// If we look at the decompiled version of the example it -> it + 1 func
+// If we look at the decompiled version of the example it -> it + 1 map
 // we get something similar to:
 fun decompiledMap() {
     val array = arrayListOf<Int>()
@@ -516,6 +499,12 @@ ______          __                                          _
    inline fun myInlineFun(i: Int, s: String) {
 
    }
+
+
+
+
+
+
 
 
 

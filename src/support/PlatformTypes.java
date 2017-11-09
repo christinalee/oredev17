@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PlatformTypes {
 
-    public static List<String> getAList() {
+    public static List<String> getAListFromJava() {
         return new ArrayList<>();
     }
 
