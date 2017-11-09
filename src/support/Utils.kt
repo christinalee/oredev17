@@ -25,3 +25,16 @@ class Consumer<in T> {
 open class Dog
 class SmallDog: Dog()
 
+
+
+
+
+
+
+
+// Copy of implementation needed to compile in Inlining file
+fun <T> Iterable<T>.collectionSizeOrDefault(default: Int): Int = if (this is Collection<*>) this.size else default
+
+
+fun callBaz() {}
+
